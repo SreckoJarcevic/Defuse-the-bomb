@@ -4,7 +4,9 @@ See if you would get away with finding yourself in a room with a time bomb if yo
 
 ## Starting the game
 
-In the project directory, you can run:
+In the project directory:
+
+### `npm install`
 
 ### `npm start`
 
