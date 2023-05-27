@@ -1,0 +1,88 @@
+input {
+  width: 50%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+
+p {
+  font-size: 18px;
+  font-family: monospace;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  border-radius: 12px;
+  background: red;
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-family: monospace;
+  letter-spacing: 2px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+button:disabled {
+  background: gray;
+  cursor: default;
+}
+
+button:hover,
+button:focus {
+  background: rgb(255, 75, 75);
+}
+
+textarea {
+  width: 50%;
+  resize: none;
+  height: 200px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+  width: 85%;
+  height: 100vh;
+}
+
+.timer {
+  font-family: fantasy;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.error {
+  color: rgb(255, 75, 75);
+  font-weight: 600;
+}
+
+.explosion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.title {
+  font-family: monospace;
+}
+
+.victory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

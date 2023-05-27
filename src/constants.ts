@@ -1,0 +1,16 @@
+export const SUPPORTED_KEYS = [
+    "[",
+    "]",
+    "(",
+    ")",
+    "+",
+    "!",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "Enter",
+    "Backspace",
+    "Tab",
+    " ",
+];
