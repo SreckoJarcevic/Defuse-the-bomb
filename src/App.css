@@ -48,6 +48,11 @@ textarea {
   font-weight: 600;
 }
 
+b {
+  background: lavender;
+  padding: 2px 6px;
+}
+
 .app {
   display: flex;
   flex-direction: column;
