@@ -95,6 +95,8 @@ const App = () => {
     setHistory((prevState) => [...prevState, userInput]);
     setUserInput("");
 
+    if (currentCommandIndex >= 0) setCurrentCommandIndex(-1);
+
     setTimeout(() => {
       areaRef?.current?.scrollTo && areaRef.current.scrollTo(0, 100000);
     }, 0);
@@ -102,19 +104,35 @@ const App = () => {
 
   const populateHistory = (event: KeyboardEvent<HTMLInputElement>) => {
     const { key } = event;
+    const copyPaste = event.metaKey && ["v", "c"].includes(key);
 
-    if (!SUPPORTED_KEYS.includes(key) && event.metaKey && key !== "v") {
+    if (!SUPPORTED_KEYS.includes(key) && !copyPaste) {
       event.preventDefault();
       return;
     }
 
-    // Enable using history (developer tools console feature)
-    if (key === "ArrowUp" && currentCommandIndex < history.length - 1) {
-      setCurrentCommandIndex(currentCommandIndex + 1);
-      setUserInput(String(history.at(currentCommandIndex)));
-    } else if (key === "ArrowDown" && currentCommandIndex >= 0) {
-      setCurrentCommandIndex(currentCommandIndex - 1);
-      setUserInput(String(history.at(currentCommandIndex)));
+    if (key === "ArrowUp") {
+      if (!currentCommandIndex) return;
+
+      let index = 0;
+
+      if (currentCommandIndex < 0) {
+        index = history.length - 1;
+      } else {
+        index = currentCommandIndex - 1;
+      }
+
+      setCurrentCommandIndex(index);
+      setUserInput(String(history.at(index)));
+    }
+
+    if (key === "ArrowDown") {
+      if (currentCommandIndex === history.length - 1) return;
+
+      let index = currentCommandIndex + 1;
+
+      setCurrentCommandIndex(index);
+      setUserInput(String(history.at(index)));
     }
 
     if (key === "Enter" && userInput.length) onDefuse();
