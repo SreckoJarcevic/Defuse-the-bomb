@@ -57,12 +57,14 @@ const App = () => {
   };
 
   const onDefuse = () => {
+    var regex = /\bdefuse\b/;
     // Prevent pasting "defuse" in an input field
-    if (userInput === "defuse") {
+    if (regex.test(userInput)) {
       setError("Don't try to cheat yourself!");
       setUserInput("");
 
       setTimeout(() => setError(""), 4000);
+      return;
     }
 
     let evolvedValue = "";
